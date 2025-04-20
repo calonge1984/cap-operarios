@@ -40,5 +40,13 @@
   "rules": {
     "no-console": "off",
     "require-atomic-updates": "off"
+  }, 
+  "cds": {
+    "requires": {
+      "NorthWind": {
+        "kind": "odata",
+        "model": "srv/external/NorthWind"
+      }
+    }
   }
 }

@@ -1,5 +1,8 @@
 namespace ns_operarios;
 
+// context --> agrupar por secciones
+// using   --> para importar otro modulos
+
 using {
         cuid,
         managed
@@ -20,19 +23,21 @@ type Acciones : String enum {
 
 }
 
+// localized -> se añade para las traducciones
+
 entity Rondas : cuid, managed {
 
         Imagen   : String;
-        Texto    : String;
-        Estado   : Estados;
+        Texto    : localized String;
+        Estado   : localized Estados;
         Operario : Association to Operarios;
 
 }
 
 entity Avisos : cuid, managed {
 
-        Texto    : String;
-        Estado   : Estados;
+        Texto    : localized String;
+        Estado   : localized Estados;
         Operario : Association to Operarios;
 }
 
@@ -48,18 +53,18 @@ entity Operarios : cuid, managed {
 entity Logs : cuid, managed {
         Operario : Association to Operarios;
 
-
 }
 
 //vistas y proyecciones
+@readonly
 entity OperarioToRonda  as
         select from Operarios as o
         inner join Rondas     as r
                 on o.ID = r.Operario.ID
         {
                 key o.ID as OperarioID,
-                o.Nombre,
-                o.Apellidos,
+                o.Nombre       @mandatory, // se le indica que es obligatorio
+                o.Apellidos    @mandatory, // se le indica que es obligatorio
                 r.ID as RondaID,
                 r.Imagen,
                 r.Texto,
