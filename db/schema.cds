@@ -56,15 +56,15 @@ entity Logs : cuid, managed {
 }
 
 //vistas y proyecciones
-@readonly
+
 entity OperarioToRonda  as
         select from Operarios as o
         inner join Rondas     as r
                 on o.ID = r.Operario.ID
         {
                 key o.ID as OperarioID,
-                o.Nombre       @mandatory, // se le indica que es obligatorio
-                o.Apellidos    @mandatory, // se le indica que es obligatorio
+                o.Nombre, 
+                o.Apellidos, 
                 r.ID as RondaID,
                 r.Imagen,
                 r.Texto,

@@ -1,23 +1,31 @@
 using {ns_operarios} from '../db/schema';
-using { NorthWind as n } from './external/NorthWind';
+//using { NorthWind as n } from './external/NorthWind';
 
 service procesosService {
 
-    //entity operariosSrv        as projection on ns_operarios.Operarios;
-    //entity rondasSrv           as projection on ns_operarios.Rondas;
+    /*entity operariosSrv        as projection on ns_operarios.Operarios;
+    action callOperarios(this : operariosSrv)  returns String;*/
+
+    /*entity rondasSrv           as projection on ns_operarios.Rondas;
+    action callRondas(this : rondasSrv)  returns String;*/
     //entity avisosSrv           as projection on ns_operarios.Avisos;
+
     entity OperarioToRondaSrv  as projection on ns_operarios.OperarioToRonda;
+    action callRondas(this : OperarioToRondaSrv)  returns String;
+
+
     entity OperarioToAvisosSrv as projection on ns_operarios.OperarioToAvisos;
+    action callAvisos(this : OperarioToAvisosSrv) returns String;
 
 }
 
-service TestService {
+/*service TestService {
 
     @readonly
     entity SupplierSrv as projection on n.Suppliers;
-    
 
-}
+
+}*/
 
 // se puede hacer un select
 /*service  procesosService2 {
