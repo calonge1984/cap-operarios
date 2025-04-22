@@ -1,6 +1,6 @@
 using procesosService from './procesos-service';
 
-annotate procesosService.operariosSrv with @(
+/*annotate procesosService.operariosSrv with @(
 
 UI.LineItem: [{
   $Type : 'UI.DataFieldForAction',
@@ -10,7 +10,7 @@ UI.LineItem: [{
 
 ]
 
-);
+);*/
 
 
 annotate procesosService.OperarioToRondaSrv with @(UI.LineItem: [{

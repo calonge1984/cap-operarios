@@ -1,0 +1,1 @@
+using procesosService as service from '../../srv/procesos-service';
