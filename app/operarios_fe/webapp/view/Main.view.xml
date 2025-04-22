@@ -1,6 +1,34 @@
-<mvc:View controllerName="nsoperariosfe.operariosfe.controller.Main"
+<mvc:View
+    controllerName="nsoperariosfe.operariosfe.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:filterbar="sap.ui.comp.filterbar"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <Button
+            
+                id="btn_rondas"
+                icon="sap-icon://bus-public-transport"
+                text="{i18n>btn_rondas}"
+                tooltip="{i18n>tooltip_rondas}"
+                press="goRondas"
+                
+            />
+            <Button
+
+                id="btn_avisos"
+                icon="sap-icon://bell"
+                text="{i18n>btn_avisos}"
+                tooltip="{i18n>tooltip_avisos}"
+                press="goAvisos"
+                
+            />
+        </content>
     </Page>
 </mvc:View>

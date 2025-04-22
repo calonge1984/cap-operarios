@@ -1,0 +1,10 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="nsoperariosfe.operariosfe.controller.Rondas">
+  <Page title="Rondas">
+    <content>
+      <Text text="Esta es la vista del servicio de Rondas." />
+    </content>
+  </Page>
+</mvc:View>

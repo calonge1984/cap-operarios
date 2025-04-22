@@ -1,0 +1,10 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="nsoperariosfe.operariosfe.controller.Avisos">
+  <Page title="Avisos">
+    <content>
+      <Text text="Esta es la vista del servicio de Avisos." />
+    </content>
+  </Page>
+</mvc:View>

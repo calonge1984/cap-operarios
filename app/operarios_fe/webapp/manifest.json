@@ -43,7 +43,11 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "_comentario_003":"se añade para la validacion con los servicios OData",
+    "handleValidation": true, 
+    "_comentario_001":"para no tener que agregar un ID a cada uno de los elementos",
+    "_comentario_002":"se cambia flexEnabled: true por false",
+    "flexEnabled": false, 
     "dependencies": {
       "minUI5Version": "1.134.1",
       "libs": {
@@ -98,12 +102,36 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "RouteRondas",
+          "pattern": "Rondas",
+          "target": [
+            "TargetRondas"
+          ]
+
+        },
+        {
+          "name": "RouteAvisos",
+          "pattern": "Avisos",
+          "target": [
+            "TargetAvisos"
+          ]
+
         }
       ],
       "targets": {
         "TargetMain": {
           "id": "Main",
           "name": "Main"
+        },
+        "TargetRondas": {
+          "id": "Rondas",
+          "name": "Rondas"
+        },
+        "TargetAvisos": {
+          "id": "Avisos",
+          "name": "Avisos"
         }
       }
     },
