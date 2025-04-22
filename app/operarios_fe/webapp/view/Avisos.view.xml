@@ -1,10 +1,88 @@
 <mvc:View
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:fb="sap.ui.comp.filterbar"
+  xmlns:core="sap.ui.core"
   controllerName="nsoperariosfe.operariosfe.controller.Avisos">
-  <Page title="Avisos">
+ <!--  <Page title="Avisos">
     <content>
       <Text text="Esta es la vista del servicio de Avisos." />
     </content>
-  </Page>
+  </Page> -->
+
+    <f:DynamicPage id="dynamicPageAvisos"
+                   showFooter="true">
+
+      <f:title>
+        <f:DynamicPageTitle >
+          <f:heading>
+            <Text text="{i18n>titleAvisos}" wrapping="true"></Text>
+          </f:heading>
+
+          <f:actions>
+
+            <Button id="backMainAvisos"
+                    icon="sap-icon://nav-back"
+                    tooltip="{i18n>VolverMain}"
+                    press="goToMain"/>
+          </f:actions>
+
+        </f:DynamicPageTitle>
+      </f:title>
+
+
+      <f:header>
+        
+        <!--<f:DynamicPageHeader>
+          <fb:FilterBar showRestoreButton="false"
+                        useToolbar="false"
+                        showFilterConfiguration="false"
+                        showGoOnFB="false">
+
+              <fb:filterGroupItems>
+
+                <fb:FilterGroupItem>
+
+                  <fb:control>
+
+                  </fb:control>
+
+                </fb:FilterGroupItem>
+
+              </fb:filterGroupItems>
+
+          </fb:FilterBar>
+
+        </f:DynamicPageHeader>-->
+
+      </f:header>
+
+
+
+      <f:content>
+
+      <Table id="avisosTable">
+
+        <headerToolbar>
+          <OverflowToolbar >
+            <content>
+
+              <ToolbarSpacer />
+              <!--<Button id="backMain"
+                      icon="sap-icon://nav-back"
+                      tooltip="{i18n>VolverMain}"
+                      press="goMain"/>-->
+
+            </content>
+          </OverflowToolbar>
+        </headerToolbar>
+
+      </Table>
+
+
+      </f:content>
+      <f:footer></f:footer>
+
+    </f:DynamicPage>
 </mvc:View>
