@@ -34,7 +34,7 @@
 
       <f:header>
         
-        <!--<f:DynamicPageHeader>
+        <f:DynamicPageHeader>
           <fb:FilterBar showRestoreButton="false"
                         useToolbar="false"
                         showFilterConfiguration="false"
@@ -54,7 +54,7 @@
 
           </fb:FilterBar>
 
-        </f:DynamicPageHeader>-->
+        </f:DynamicPageHeader>
 
       </f:header>
 

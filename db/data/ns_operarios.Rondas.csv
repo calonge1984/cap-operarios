@@ -1,0 +1,3 @@
+ID,Imagen,Texto,Estado,Operario_ID
+c0a80101-0000-4000-a000-000000000101,https://example.com/ronda1.jpg,Inspección de maquinaria,Pendiente,c0a80101-0000-4000-a000-000000000001
+c0a80101-0000-4000-a000-000000000102,https://example.com/ronda2.jpg,Verificación de seguridad,Finalizado,c0a80101-0000-4000-a000-000000000002

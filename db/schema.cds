@@ -11,8 +11,9 @@ using {
 
 type Estados  : String enum {
 
-        Realizada;
         Pendiente;
+        Finalizado;
+        
 }
 
 type Acciones : String enum {
