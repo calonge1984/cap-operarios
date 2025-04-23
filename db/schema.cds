@@ -86,4 +86,3 @@ entity OperarioToAvisos as
                 a.Estado
 
         };
-

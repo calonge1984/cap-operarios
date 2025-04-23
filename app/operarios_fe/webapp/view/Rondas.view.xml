@@ -35,17 +35,44 @@
       <f:header>
         
         <f:DynamicPageHeader>
+
           <fb:FilterBar showRestoreButton="false"
                         useToolbar="false"
                         showFilterConfiguration="false"
                         showGoOnFB="false">
 
               <fb:filterGroupItems>
-
-                <fb:FilterGroupItem>
+              <!-- Se añaden filtros-->
+                <fb:FilterGroupItem name="Rondas"
+                                    groupName="filters"
+                                    label="Rondas"
+                                    visibleInFilterBar="true">
 
                   <fb:control>
+                    <Input value="{filters>/Rondas}"
+                           valueLiveUpdate="true"
+                           liveChange="onSearch"
+                           enabled="{= !${viewModel>hasUIChanges}}"></Input>
+                  </fb:control>
 
+                </fb:FilterGroupItem>
+
+                <fb:FilterGroupItem name="Estado"
+                                    groupName="filters"
+                                    label="Estados"
+                                    visibleInFilterBar="true">
+
+                  <fb:control>
+                    <ComboBox items="{path:'/EstadosSRV'}"
+                              selectedKey="{filters>/Estado}"
+                              selectionChange="onSearch"
+                              enabled="{= !${viewModel>hasUIChanges}}">
+
+                    <items>
+                      <core:Item key="{Estado}" text="{Estado}"/>
+                    </items>
+
+                    </ComboBox>
                   </fb:control>
 
                 </fb:FilterGroupItem>
@@ -62,7 +89,17 @@
 
       <f:content>
 
-      <Table id="rondasTable">
+      <Table id="rondasTable"
+             growing="true"
+             growingThreshold="10"
+             items="{ 
+             path:'/OperarioToRondaSrv',
+             parameters: {
+                $count : true,
+                $$updateGroupId: 'RondasGroup'
+              }
+            }"
+            mode="SingleSelectLeft">
 
         <headerToolbar>
           <OverflowToolbar >
@@ -78,12 +115,87 @@
             </content>
           </OverflowToolbar>
         </headerToolbar>
+        <columns>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>NombreOpe}"></Text>
+
+          </Column>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>ApellidoOpe}"></Text>
+
+          </Column>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>RondaID}"></Text>
+
+          </Column>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>Estado}"></Text>
+
+          </Column>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>Texto}"></Text>
+
+          </Column>
+
+        </columns>
+
+        <items>
+          <ColumnListItem >
+            <cells>
+              <Input value="{Nombre}"
+                     liveChange="onInputChange"/>
+              <Input value="{Apellidos}"
+                     liveChange="onInputChange"/>
+              <Input value="{RondaID}"
+                     liveChange="onInputChange"/>
+               <Input value="{Estado}"
+                     liveChange="onInputChange"/>
+               <Input value="{Texto}"
+                     liveChange="onInputChange"/>
+
+            </cells>
+          </ColumnListItem>
+        </items>
 
       </Table>
 
 
       </f:content>
-      <f:footer></f:footer>
+      <f:footer>
+
+        <OverflowToolbar visible="{= !${viewModel>hasUIChanges}}" >
+
+        <ToolbarSpacer />
+
+        <Button id="onSaveRonda"
+                icon="sap-icon://save"
+                tooltip="{i18n>saveButton}"
+                type="Success"
+                press="onSave"/>
+
+         <Button id="onCancelRonda"
+                icon="sap-icon://cancel"
+                tooltip="{i18n>cancelButton}"
+                type="Negative"
+                press="onCancel"/>
+
+        </OverflowToolbar>
+      </f:footer>
 
     </f:DynamicPage>
 

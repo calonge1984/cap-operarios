@@ -34,18 +34,45 @@
 
       <f:header>
         
-        <!--<f:DynamicPageHeader>
+        <f:DynamicPageHeader>
+
           <fb:FilterBar showRestoreButton="false"
                         useToolbar="false"
                         showFilterConfiguration="false"
                         showGoOnFB="false">
 
               <fb:filterGroupItems>
-
-                <fb:FilterGroupItem>
+              <!-- Se añaden filtros-->
+                <fb:FilterGroupItem name="Avisos"
+                                    groupName="filters"
+                                    label="Avisos"
+                                    visibleInFilterBar="true">
 
                   <fb:control>
+                    <Input value="{filters>/Avisos}"
+                           valueLiveUpdate="true"
+                           liveChange="onSearch"
+                           enabled="{= !${viewModel>hasUIChanges}}"></Input>
+                  </fb:control>
 
+                </fb:FilterGroupItem>
+
+                <fb:FilterGroupItem name="Estado"
+                                    groupName="filters"
+                                    label="Estados"
+                                    visibleInFilterBar="true">
+
+                  <fb:control>
+                    <ComboBox items="{path:'/EstadosSRV'}"
+                              selectedKey="{filters>/Estado}"
+                              selectionChange="onSearch"
+                              enabled="{= !${viewModel>hasUIChanges}}">
+
+                    <items>
+                      <core:Item key="{Estado}" text="{Estado}"/>
+                    </items>
+
+                    </ComboBox>
                   </fb:control>
 
                 </fb:FilterGroupItem>
@@ -54,18 +81,26 @@
 
           </fb:FilterBar>
 
-        </f:DynamicPageHeader>-->
+        </f:DynamicPageHeader>
 
       </f:header>
 
-
-
       <f:content>
 
-      <Table id="avisosTable">
+      <Table id="avisosTable"
+             growing="true"
+             growingThreshold="10"
+             items="{ 
+             path:'/OperarioToAvisosSrv',
+             parameters: {
+                $count : true,
+                $$updateGroupId: 'AvisosGroup'
+             }
+            }"
+            mode="SingleSelectLeft">
 
         <headerToolbar>
-          <OverflowToolbar >
+          <OverflowToolbar>
             <content>
 
               <ToolbarSpacer />
@@ -85,11 +120,90 @@
           </OverflowToolbar>
         </headerToolbar>
 
+        <columns>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>NombreOpe}"></Text>
+
+          </Column>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>ApellidoOpe}"></Text>
+
+          </Column>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>AvisoID}"></Text>
+
+          </Column>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>Estado}"></Text>
+
+          </Column>
+
+          <Column hAlign="Begin"
+                  minScreenWidth="Small"
+                  demandPopin="true">
+                  <Text text="{i18n>Texto}"></Text>
+
+          </Column>
+
+        </columns>
+
+        <items>
+          <ColumnListItem >
+            <cells>
+              <Input value="{Nombre}"
+                     liveChange="onInputChange"/>
+              <Input value="{Apellidos}"
+                     liveChange="onInputChange"/>
+              <Input value="{AvisoID}"
+                     liveChange="onInputChange"/>
+
+               <Input value="{Estado}"
+                     liveChange="onInputChange"/>
+
+               <Input value="{Texto}"
+                     liveChange="onInputChange"/>
+
+            </cells>
+          </ColumnListItem>
+        </items>
+
       </Table>
 
-
       </f:content>
-      <f:footer></f:footer>
+
+      <f:footer>
+
+        <OverflowToolbar visible="{= !${viewModel>hasUIChanges}}" >
+
+        <ToolbarSpacer />
+
+        <Button id="onSaveAviso"
+                icon="sap-icon://save"
+                tooltip="{i18n>saveButton}"
+                type="Success"
+                press="onSave"/>
+
+         <Button id="onCancelAviso"
+                icon="sap-icon://cancel"
+                tooltip="{i18n>cancelButton}"
+                type="Negative"
+                press="onCancel"/>
+
+        </OverflowToolbar>
+      </f:footer>
 
     </f:DynamicPage>
+
 </mvc:View>

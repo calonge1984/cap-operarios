@@ -4,25 +4,27 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("nsoperariosfe.operariosfe.controller.Main", {
+
         onInit() {
+
         },
 
-        goRondas: function (){
+        goRondas: function () {
 
             this.getOwnerComponent().getRouter().navTo("RouteRondas");
-            
-            
-                //alert("estamos en rondas");
-            
+
+
+            //alert("estamos en rondas");
+
         },
-        
-        goAvisos: function (){
+
+        goAvisos: function () {
 
             this.getOwnerComponent().getRouter().navTo("RouteAvisos");
-            
-            
-                //alert("estamos en avisos");
-            
+
+
+            //alert("estamos en avisos");
+
         },
 
     });

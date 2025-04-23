@@ -6,8 +6,8 @@ service procesosService {
     /*entity operariosSrv        as projection on ns_operarios.Operarios;
     action callOperarios(this : operariosSrv)  returns String;*/
 
-    /*entity rondasSrv           as projection on ns_operarios.Rondas;
-    action callRondas(this : rondasSrv)  returns String;*/
+    entity rondasSrv           as projection on ns_operarios.Rondas;
+    //action callRondas(this : rondasSrv)  returns String;*/
     //entity avisosSrv           as projection on ns_operarios.Avisos;
 
     entity OperarioToRondaSrv  as projection on ns_operarios.OperarioToRonda;
@@ -16,6 +16,14 @@ service procesosService {
 
     entity OperarioToAvisosSrv as projection on ns_operarios.OperarioToAvisos;
     action callAvisos(this : OperarioToAvisosSrv) returns String;
+
+
+entity EstadosSRV as 
+  select from ns_operarios.Rondas {
+    key  Estado as ID,
+         Estado
+  } group by Estado;
+
 
 }
 

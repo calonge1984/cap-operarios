@@ -44,10 +44,13 @@
   },
   "cds": {
     "requires": {
-      "NorthWind": {
-        "kind": "odata",
-        "model": "srv/external/NorthWind"
+      "db":{
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db/OperariosDDBB"
+        }
+      }
       }
     }
   }
-}
+
