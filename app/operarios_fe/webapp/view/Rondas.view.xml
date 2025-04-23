@@ -69,11 +69,12 @@
             <content>
 
               <ToolbarSpacer />
-              <!--<Button id="backMain"
-                      icon="sap-icon://nav-back"
-                      tooltip="{i18n>VolverMain}"
-                      press="goMain"/>-->
 
+              <Button id="updRondas"
+                      icon="sap-icon://edit"
+                      tooltip="{i18n>update}"
+                      press="onUpdate"/>
+                      
             </content>
           </OverflowToolbar>
         </headerToolbar>

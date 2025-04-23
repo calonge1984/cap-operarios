@@ -1,1 +1,22 @@
 /* Enter your custom styles here */
+
+.customButton{
+    font-size: 1.5rem;          /* texto más grande */
+    padding: 1rem 3rem;         /* más espacio interno */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
+}
+.buttonContainer {
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+/* Responsive: en pantallas pequeñas, botón ocupa el 100% */
+@media only screen and (max-width: 600px) {
+    .responsiveButton {
+      width: 100% !important;
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+  }

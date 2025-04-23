@@ -9,8 +9,9 @@
     <Page
         id="page"
         title="{i18n>title}"
-    >
-        <content>
+    >   
+    <VBox class="buttonContainer">
+        <!--<content>        </content>-->
             <Button
             
                 id="btn_rondas"
@@ -18,6 +19,7 @@
                 text="{i18n>btn_rondas}"
                 tooltip="{i18n>tooltip_rondas}"
                 press="goRondas"
+                class="customButton responsiveButton"
                 
             />
             <Button
@@ -27,8 +29,9 @@
                 text="{i18n>btn_avisos}"
                 tooltip="{i18n>tooltip_avisos}"
                 press="goAvisos"
-                
+                class="customButton responsiveButton"
             />
-        </content>
+
+    </VBox>
     </Page>
 </mvc:View>

@@ -23,6 +23,25 @@ sap.ui.define([
                 this.getOwnerComponent().getRouter().navTo("RouteMain", {}, true);
             }
             
+        },
+
+        onCreate: function(){
+
+            alert("Hola");
+
+        },
+
+        onDelete: function(){
+
+            alert("Hola");
+
+        },
+
+        onUpdate: function(){
+
+            alert("Hola");
+
         }
+
     });
 });

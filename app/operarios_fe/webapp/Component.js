@@ -1,6 +1,7 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "nsoperariosfe/operariosfe/model/models"
+
 ], (UIComponent, models) => {
     "use strict";
 
